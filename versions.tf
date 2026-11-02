@@ -11,6 +11,6 @@ terraform {
   backend "s3" {
     bucket         = "replace-with-a-globally-unique-bucket-name"
     key            = "projects/terraform.tfstate"
-    region         = var.aws_region
+    region         = "us-east-1"
   }
 }
