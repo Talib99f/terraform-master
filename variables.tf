@@ -28,6 +28,18 @@ variable "availability_zones" {
   type        = list(string)
 }
 
+variable "security_group_ingress_rules" {
+  description = "Optional IPv4 ingress rules for the VPC security group. Leave empty to allow no inbound traffic."
+  type = list(object({
+    description = string
+    from_port   = number
+    to_port     = number
+    protocol    = string
+    cidr_blocks = list(string)
+  }))
+  default = []
+}
+
 variable "allowed_admin_cidr" {
   description = "Trusted IPv4 CIDR allowed to access SSH and the Jenkins web UI, such as your public IP with /32."
   type        = string
